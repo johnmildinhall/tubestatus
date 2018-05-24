@@ -7,7 +7,7 @@ def rename(name):
 	# 	if 
 
 #function to rotate text
-def draw_text(position, text, font=None, colour=inkyphat.BLACK, rotation=0):
+def draw_text(position, text, font=None, colour=inkyphat.BLACK, rotation=0, size=12):
     x, y = position
     if font is None:
         font = inkyphat.ImageFont.truetype(inkyphat.fonts.FredokaOne,12)
@@ -28,8 +28,8 @@ for item in data:
 	print(item['lineStatuses'][0]['statusSeverity'])
 
 # draw header
-inkyphat.rectangle([0,0,20,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
-draw_text((2, 25), "tube status", colour=inkyphat.WHITE, rotation=90)
+inkyphat.rectangle([0,0,18,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
+draw_text((1, 25), "tube status", colour=inkyphat.WHITE, rotation=90, size=14)
 
 top = 0
 font_file = inkyphat.fonts.FredokaOne
