@@ -37,7 +37,7 @@ font_size = 10
 font = inkyphat.ImageFont.truetype(font_file, font_size)
 text = "hello"
 for i in range(0,11):
-	y = (i*15) + 20
+	y = (i*15) + 25
 	text = data[i]['name']
 	if text == "Hammersmith & City":
 		text = "H'Smth & City"
