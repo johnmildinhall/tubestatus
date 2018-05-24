@@ -13,5 +13,5 @@ font_file = inkyphat.fonts.FredokaOne
 font_size = 10
 font = inkyphat.ImageFont.truetype(font_file, font_size)
 text = "hello"
-inkyphat.text((0, top), text, 1, font=font)
+inkyphat.text((0, top), text, 2, font=font)
 inkyphat.show()
