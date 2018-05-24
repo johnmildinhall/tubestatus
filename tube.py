@@ -1,6 +1,11 @@
 import requests, json, inkyphat
 from PIL import ImageFont
 
+def rename(name):
+	values = {"Hammersmith & City":"H'Smth & City", "Metropolitan":"M'politan"}
+	# for value in values:
+	# 	if 
+
 #function to rotate text
 def draw_text(position, text, font=None, colour=inkyphat.BLACK, rotation=0):
     x, y = position
@@ -27,8 +32,12 @@ font_file = inkyphat.fonts.FredokaOne
 font_size = 10
 font = inkyphat.ImageFont.truetype(font_file, font_size)
 text = "hello"
-for i in range(0,10):
+for i in range(0,11):
 	y = (i*10) + 20
 	text = data[i]['name']
+	if text = "Hammersmith & City":
+		text = "H'Smth & City"
+	if text = "Metropolitan":
+		text = "M'politan"
 	draw_text((y, 5), text, rotation=90)
 inkyphat.show()
