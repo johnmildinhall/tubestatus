@@ -10,7 +10,7 @@ def rename(name):
 def draw_text(position, text, font=None, colour=inkyphat.BLACK, rotation=0):
     x, y = position
     if font is None:
-        font = inkyphat.ImageFont.truetype(inkyphat.fonts.PressStart2P,12)
+        font = inkyphat.ImageFont.truetype(inkyphat.fonts.FredokaOne,12)
     w, h = font.getsize(text)
     mask = inkyphat.Image.new('1', (w, h))
     draw = inkyphat.ImageDraw.Draw(mask)
@@ -18,6 +18,8 @@ def draw_text(position, text, font=None, colour=inkyphat.BLACK, rotation=0):
     mask = mask.rotate(rotation, expand=True)
     inkyphat.paste(colour, position, mask)
 
+
+# Get tube data
 url = 'https://api.tfl.gov.uk/line/mode/tube/status'
 response = requests.get(url)
 data = json.loads(response.text)
@@ -25,7 +27,9 @@ for item in data:
 	print(item['name'])
 	print(item['lineStatuses'][0]['statusSeverity'])
 
-inkyphat.set_rotation(90)
+# draw header
+inkyphat.rectangle([0,0,131,20], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
+inkyphat.text([2,2], "tube status", fill=inkyphat.WHITE, font=inkyphat.fonts.FredokaOne, anchor=None)
 
 top = 0
 font_file = inkyphat.fonts.FredokaOne
