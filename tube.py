@@ -27,5 +27,8 @@ font_file = inkyphat.fonts.FredokaOne
 font_size = 10
 font = inkyphat.ImageFont.truetype(font_file, font_size)
 text = "hello"
-draw_text((20, 20), text, rotation=90)
+for i in range(0,10):
+	y = (i*10) + 20
+	text = data[i]['name']
+	draw_text((y, 5), text, rotation=90)
 inkyphat.show()
