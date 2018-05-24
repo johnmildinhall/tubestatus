@@ -8,6 +8,8 @@ for item in data:
 	print(item['name'])
 	print(item['lineStatuses'][0]['statusSeverity'])
 
+inkyphat.set_rotation(90)
+
 top = 0
 font_file = inkyphat.fonts.FredokaOne
 font_size = 10
