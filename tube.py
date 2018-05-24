@@ -42,7 +42,7 @@ for i in range(0,11):
 	if text == "Waterloo & City":
 		text = "W'loo & City"
 	draw_text((y, 25), text, rotation=90)
-	if i == 5:
+	if data[i]['lineStatuses'][0]['statusSeverity'] < 10:
 		inkyphat.ellipse([y+2, 5, y+12, 15], fill=inkyphat.RED, outline=inkyphat.BLACK)
 	else:
 		inkyphat.ellipse([y+2, 5, y+12, 15], fill=None, outline=inkyphat.BLACK)
