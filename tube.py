@@ -28,8 +28,8 @@ for item in data:
 	print(item['lineStatuses'][0]['statusSeverity'])
 
 # draw header
-inkyphat.rectangle([0,0,131,20], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
-inkyphat.text([2,2], "tube status", fill=inkyphat.WHITE, font=inkyphat.ImageFont.truetype(inkyphat.fonts.FredokaOne,12), anchor=None)
+inkyphat.rectangle([0,0,20,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
+draw_text((y, 25), "tube status", colour=inkyphat.WHITE, rotation=90)
 
 top = 0
 font_file = inkyphat.fonts.FredokaOne
