@@ -33,11 +33,11 @@ font_size = 10
 font = inkyphat.ImageFont.truetype(font_file, font_size)
 text = "hello"
 for i in range(0,11):
-	y = (i*10) + 20
+	y = (i*15) + 20
 	text = data[i]['name']
-	if text = "Hammersmith & City":
+	if text == "Hammersmith & City":
 		text = "H'Smth & City"
-	if text = "Metropolitan":
+	if text == "Metropolitan":
 		text = "M'politan"
 	draw_text((y, 5), text, rotation=90)
 inkyphat.show()
