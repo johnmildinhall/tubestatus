@@ -39,5 +39,7 @@ for i in range(0,11):
 		text = "H'Smth & City"
 	if text == "Metropolitan":
 		text = "M'politan"
-	draw_text((y, 5), text, rotation=90)
+	if text = "Waterloo & City":
+		text = "W'loo & City"
+	draw_text((y, 3), text, rotation=90)
 inkyphat.show()
