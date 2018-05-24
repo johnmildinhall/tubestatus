@@ -7,3 +7,11 @@ data = json.loads(response.text)
 for item in data:
 	print(item['name'])
 	print(item['lineStatuses'][0]['statusSeverity'])
+
+top = 0
+font_file = inkyphat.fonts.FredokaOne
+font_size = 10
+font = inkyphat.ImageFont.truetype(font_file, font_size)
+text = "hello"
+inkyphat.text((0, top), text, 1, font=font)
+inkyphat.show()
