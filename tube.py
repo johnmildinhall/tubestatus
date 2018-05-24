@@ -29,7 +29,7 @@ for item in data:
 
 # draw header
 inkyphat.rectangle([0,0,20,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
-draw_text((y, 25), "tube status", colour=inkyphat.WHITE, rotation=90)
+draw_text((2, 25), "tube status", colour=inkyphat.WHITE, rotation=90)
 
 top = 0
 font_file = inkyphat.fonts.FredokaOne
