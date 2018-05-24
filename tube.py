@@ -42,5 +42,5 @@ for i in range(0,11):
 	if text == "Waterloo & City":
 		text = "W'loo & City"
 	draw_text((y, 25), text, rotation=90)
-	inkyphat.ellipse([5, y, 20, y+15], fill=None, outline=inkyphat.BLACK)
+	inkyphat.ellipse([y, 5 y+15, 20], fill=None, outline=inkyphat.BLACK)
 inkyphat.show()
