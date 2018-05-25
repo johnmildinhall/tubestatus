@@ -1,4 +1,4 @@
-import requests, json, inkyphat, time, pytz
+import requests, json, inkyphat, time, pytz, threading
 from datetime import datetime, timedelta
 from PIL import ImageFont
 from pytz import timezone
@@ -24,50 +24,54 @@ def draw_text(position, text, font=1, colour=inkyphat.BLACK, rotation=0, size=16
     inkyphat.paste(colour, position, mask)
 
 
-# Get tube data
-url = 'https://api.tfl.gov.uk/line/mode/tube/status'
-response = requests.get(url)
-data = json.loads(response.text)
-for item in data:
-	print(item['name'])
-	print(item['lineStatuses'][0]['statusSeverity'])
+def updateTube():
+  threading.Timer(60, printit).start()
+  # Get tube data
+  url = 'https://api.tfl.gov.uk/line/mode/tube/status'
+  response = requests.get(url)
+  data = json.loads(response.text)
+  for item in data:
+  	print(item['name'])
+  	print(item['lineStatuses'][0]['statusSeverity'])
 
-# draw header
-inkyphat.rectangle([0,0,19,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
-draw_text((2, 9), "tubetron", font=2, colour=inkyphat.WHITE, rotation=90, size=18)
+  # draw header
+  inkyphat.rectangle([0,0,19,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
+  draw_text((2, 9), "tubetron", font=2, colour=inkyphat.WHITE, rotation=90, size=18)
 
-top = 0
+  top = 0
 
-for i in range(0,11):
-	y = (i*15) + 25
-	text = data[i]['name']
-	if text == "Hammersmith & City":
-		text = "H'Smth & City"
-	if text == "Metropolitan":
-		text = "M'politan"
-	if text == "Waterloo & City":
-		text = "W'loo & City"
-	draw_text((y, 23), text, rotation=90)
-	if data[i]['lineStatuses'][0]['statusSeverity'] < 10:
-		inkyphat.ellipse([y, 5, y+10, 15], fill=inkyphat.RED, outline=inkyphat.BLACK)
-	else:
-		inkyphat.ellipse([y, 5, y+10, 15], fill=None, outline=inkyphat.BLACK)
+  for i in range(0,11):
+  	y = (i*15) + 25
+  	text = data[i]['name']
+  	if text == "Hammersmith & City":
+  		text = "H'Smth & City"
+  	if text == "Metropolitan":
+  		text = "M'politan"
+  	if text == "Waterloo & City":
+  		text = "W'loo & City"
+  	draw_text((y, 23), text, rotation=90)
+  	if data[i]['lineStatuses'][0]['statusSeverity'] < 10:
+  		inkyphat.ellipse([y, 5, y+10, 15], fill=inkyphat.RED, outline=inkyphat.BLACK)
+  	else:
+  		inkyphat.ellipse([y, 5, y+10, 15], fill=None, outline=inkyphat.BLACK)
 
-# timestamp
- 
+  # timestamp
+   
 
-dst = bool(time.localtime( ).tm_isdst)
-print(dst)
-if dst == 1:
-  utc = datetime.now() + timedelta(hours=1)
-else: 
-  utc = datetime.now() + timedelta(hours=1)
-bst = pytz.timezone('Europe/London')
-fmt = '%H:%M:%S %d-%m'
-time = bst.localize(utc).strftime(fmt)
+  dst = bool(time.localtime( ).tm_isdst)
+  print(dst)
+  if dst == 1:
+    utc = datetime.now() + timedelta(hours=1)
+  else: 
+    utc = datetime.now() + timedelta(hours=1)
+  bst = pytz.timezone('Europe/London')
+  fmt = '%H:%M:%S %d-%m'
+  time = bst.localize(utc).strftime(fmt)
 
-print(time)
-inkyphat.rectangle([191,0,213,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
-draw_text((197, 6), time, colour=inkyphat.WHITE, rotation=90, size=16)
-	
-inkyphat.show()
+  print(time)
+  inkyphat.rectangle([191,0,213,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
+  draw_text((197, 6), time, colour=inkyphat.WHITE, rotation=90, size=16)
+  	
+  inkyphat.show()
+
+updateTube()
