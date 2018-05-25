@@ -57,9 +57,11 @@ for i in range(0,11):
  
 
 dst = time.daylight
+print(dst)
 if dst == 1:
   utc = datetime.now() + timedelta(hours=1)
-else: utc = datetime.now()
+else: 
+  utc = datetime.now() + timedelta(hours=1)
 bst = pytz.timezone('Europe/London')
 fmt = '%H:%M:%S %d-%m'
 time = bst.localize(utc).strftime(fmt)
