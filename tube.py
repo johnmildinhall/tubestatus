@@ -58,7 +58,7 @@ inkyphat.show()
 update = Image.new('RGBA', (inkyphat.WIDTH, inkyphat.HEIGHT))
 draw = ImageDraw.Draw(update)
 print(inkyphat.WIDTH, inkyphat.HEIGHT)
-draw.ellipse([0, 0,20,20], fill=inkyphat.RED, outline=inkyphat.BLACK)
+draw.ellipse([0, 0,20,20], fill='red', outline='black')
 for i in range(0,11):
   if data[i]['lineStatuses'][0]['statusSeverity'] < 10:
     draw.ellipse([y, 5, y+10, 15], fill='red', outline='black')
