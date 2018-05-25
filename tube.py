@@ -1,5 +1,6 @@
 import requests, json, inkyphat, datetime, time, pytz
 from PIL import ImageFont
+from pytz import timezone
 
 def rename(name):
 	values = {"Hammersmith & City":"H'Smth & City", "Metropolitan":"M'politan"}
@@ -54,9 +55,10 @@ for i in range(0,11):
 		inkyphat.ellipse([y, 5, y+10, 15], fill=None, outline=inkyphat.BLACK)
 
 # timestamp
-st = datetime.datetime.now().strftime('%H:%M:%S %d/%m')
+ 
+then = datetime.datetime.now(pytz.utc)
 bst = pytz.timezone('Europe/London')
-time = bst.localize(st)
+time = bst.localize(then)
 inkyphat.rectangle([191,0,213,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
 draw_text((197, 6), time, colour=inkyphat.WHITE, rotation=90, size=16)
 	
