@@ -29,7 +29,7 @@ for item in data:
 
 # draw header
 inkyphat.rectangle([0,0,18,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
-draw_text((1, 15), "tube status", colour=inkyphat.WHITE, rotation=90, size=14)
+draw_text((0, 15), "tube status", colour=inkyphat.WHITE, rotation=90, size=14)
 
 top = 0
 font_file = inkyphat.fonts.FredokaOne
@@ -54,7 +54,7 @@ for i in range(0,11):
 # timestamp
 ts = time.time()
 st = datetime.datetime.fromtimestamp(ts).strftime('%H:%M:%S %d-%m-%Y')
-inkyphat.rectangle([190,0,210,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
-draw_text((198, 5), st, colour=inkyphat.WHITE, rotation=90, size=10)
+inkyphat.rectangle([191,0,213,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
+draw_text((195, 5), st, colour=inkyphat.WHITE, rotation=90, size=10)
 	
 inkyphat.show()
