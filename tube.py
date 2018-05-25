@@ -25,6 +25,7 @@ def draw_text(position, text, font=1, colour=inkyphat.BLACK, rotation=0, size=16
 
 
 def updateTube():
+  global time
   threading.Timer(60, updateTube).start()
   # Get tube data
   url = 'https://api.tfl.gov.uk/line/mode/tube/status'
