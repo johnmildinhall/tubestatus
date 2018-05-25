@@ -1,5 +1,5 @@
 import requests, json, inkyphat, datetime, time
-from PIL import ImageFont, Image, ImageDraw
+from PIL import ImageFont
 
 def rename(name):
 	values = {"Hammersmith & City":"H'Smth & City", "Metropolitan":"M'politan"}
@@ -34,9 +34,6 @@ for item in data:
 inkyphat.rectangle([0,0,19,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
 draw_text((2, 9), "tubetron", font=2, colour=inkyphat.WHITE, rotation=90, size=18)
 
-# draw footer
-inkyphat.rectangle([191,0,213,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
-
 top = 0
 font_file = inkyphat.fonts.FredokaOne
 font_size = 10
@@ -51,22 +48,14 @@ for i in range(0,11):
 	if text == "Waterloo & City":
 		text = "W'loo & City"
 	draw_text((y, 23), text, rotation=90)
+	if data[i]['lineStatuses'][0]['statusSeverity'] < 10:
+		inkyphat.ellipse([y, 5, y+10, 15], fill=inkyphat.RED, outline=inkyphat.BLACK)
+	else:
+		inkyphat.ellipse([y, 5, y+10, 15], fill=None, outline=inkyphat.BLACK)
 
-inkyphat.show()
-
-#repeating steps
-update = Image.new('RGBA', (inkyphat.WIDTH, inkyphat.HEIGHT))
-draw = ImageDraw.Draw(update)
-print(inkyphat.WIDTH, inkyphat.HEIGHT)
-draw.ellipse([0, 0,20,20], fill='red', outline='black')
-for i in range(0,11):
-  if data[i]['lineStatuses'][0]['statusSeverity'] < 10:
-    draw.ellipse([y, 5, y+10, 15], fill='red', outline='black')
-  else:
-    draw.ellipse([y, 5, y+10, 15], fill='white', outline='black')
-inkyphat.paste(update, mask=1)
-# # timestamp
-# st = datetime.datetime.now().strftime('%H:%M:%S %d/%m')
-# 
-# draw_text((197, 6), st, colour=inkyphat.WHITE, rotation=90, size=16)
+# timestamp
+st = datetime.datetime.now().strftime('%H:%M:%S %d/%m')
+inkyphat.rectangle([191,0,213,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
+draw_text((197, 6), st, colour=inkyphat.WHITE, rotation=90, size=16)
 	
+inkyphat.show()
