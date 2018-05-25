@@ -52,7 +52,7 @@ for i in range(0,11):
 inkyphat.show()
 
 #repeating steps
-update = Image.new(im.mode, [210,131])
+update = Image.new(im.mode, (inkyphat.WIDTH, inkyphat.HEIGHT))
 draw = ImageDraw.Draw(update)
 for i in range(0,11):
   if data[i]['lineStatuses'][0]['statusSeverity'] < 10:
