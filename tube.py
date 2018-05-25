@@ -34,6 +34,9 @@ for item in data:
 inkyphat.rectangle([0,0,19,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
 draw_text((2, 9), "tubetron", font=2, colour=inkyphat.WHITE, rotation=90, size=18)
 
+# draw footer
+inkyphat.rectangle([191,0,213,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
+
 top = 0
 font_file = inkyphat.fonts.FredokaOne
 font_size = 10
@@ -54,14 +57,15 @@ inkyphat.show()
 #repeating steps
 update = Image.new('RGBA', (inkyphat.WIDTH, inkyphat.HEIGHT))
 draw = ImageDraw.Draw(update)
+draw.ellipse([0, 0,20,20], fill=inkyphat.RED, outline=inkyphat.BLACK)
 for i in range(0,11):
   if data[i]['lineStatuses'][0]['statusSeverity'] < 10:
     draw.ellipse([y, 5, y+10, 15], fill=inkyphat.RED, outline=inkyphat.BLACK)
   else:
     draw.ellipse([y, 5, y+10, 15], fill=None, outline=inkyphat.BLACK)
-inkyphat.paste(update)
+inkyphat.paste(update, mask=1)
 # # timestamp
 # st = datetime.datetime.now().strftime('%H:%M:%S %d/%m')
-# inkyphat.rectangle([191,0,213,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
+# 
 # draw_text((197, 6), st, colour=inkyphat.WHITE, rotation=90, size=16)
 	
