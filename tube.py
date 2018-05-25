@@ -56,7 +56,7 @@ for i in range(0,11):
 # timestamp
  
 
-dst = time.daylight
+dst = bool(time.localtime( ).tm_isdst)
 print(dst)
 if dst == 1:
   utc = datetime.now() + timedelta(hours=1)
