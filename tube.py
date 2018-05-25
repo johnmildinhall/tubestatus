@@ -59,7 +59,7 @@ for i in range(0,11):
     draw.ellipse([y, 5, y+10, 15], fill=inkyphat.RED, outline=inkyphat.BLACK)
   else:
     draw.ellipse([y, 5, y+10, 15], fill=None, outline=inkyphat.BLACK)
-inkyphat.paste(update)
+inkyphat.paste(draw)
 # # timestamp
 # st = datetime.datetime.now().strftime('%H:%M:%S %d/%m')
 # inkyphat.rectangle([191,0,213,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
