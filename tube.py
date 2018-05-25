@@ -32,7 +32,7 @@ for item in data:
 
 # draw header
 inkyphat.rectangle([0,0,19,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
-draw_text((0, 15), "tube status", font=2, colour=inkyphat.WHITE, rotation=90, size=18)
+draw_text((0, 15), "tube", font=2, colour=inkyphat.WHITE, rotation=90, size=18)
 
 top = 0
 font_file = inkyphat.fonts.FredokaOne
@@ -57,6 +57,6 @@ for i in range(0,11):
 # timestamp
 st = datetime.datetime.now().strftime('%H:%M:%S %d/%m/%Y')
 inkyphat.rectangle([191,0,213,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
-draw_text((197, 5), st, colour=inkyphat.WHITE, rotation=90, size=16)
+draw_text((197, 2), st, colour=inkyphat.WHITE, rotation=90, size=16)
 	
 inkyphat.show()
