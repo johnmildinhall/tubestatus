@@ -56,7 +56,7 @@ for i in range(0,11):
 
 # timestamp
  
-then = datetime.datetime.now(pytz.utc)
+utc = datetime.datetime.now()
 bst = pytz.timezone('Europe/London')
 time = bst.localize(then)
 inkyphat.rectangle([191,0,213,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
