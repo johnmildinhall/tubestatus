@@ -1,4 +1,4 @@
-import requests, json, inkyphat, datetime
+import requests, json, inkyphat, datetime, time
 from PIL import ImageFont
 
 def rename(name):
@@ -52,6 +52,7 @@ for i in range(0,11):
 		inkyphat.ellipse([y+2, 5, y+12, 15], fill=None, outline=inkyphat.BLACK)
 
 # timestamp
+ts = time.time()
 st = datetime.datetime.fromtimestamp(ts).strftime('%H:%M:%S %d-%m-%Y')
 draw_text((1, 200), st, colour=inkyphat.BLACK, rotation=90, size=12)
 	
