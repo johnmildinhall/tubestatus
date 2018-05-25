@@ -55,7 +55,7 @@ def updateTube():
     if data[i]['lineStatuses'][0]['statusSeverity'] > 7 and data[i]['lineStatuses'][0]['statusSeverity'] < 10:
       inkyphat.ellipse([y, 5, y+10, 15], fill=None, outline=inkyphat.BLACK)
       inkyphat.ellipse([y+2, 7, y+8, 13], fill=None, outline=inkyphat.BLACK)
-    if data[i]['lineStatuses'][0]['statusSeverity'] == 10
+    if data[i]['lineStatuses'][0]['statusSeverity'] == 10:
       inkyphat.ellipse([y, 5, y+10, 15], fill=None, outline=inkyphat.BLACK)
   # timestamp
    
