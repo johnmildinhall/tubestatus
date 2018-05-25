@@ -57,12 +57,13 @@ inkyphat.show()
 #repeating steps
 update = Image.new('RGBA', (inkyphat.WIDTH, inkyphat.HEIGHT))
 draw = ImageDraw.Draw(update)
+print(inkyphat.WIDTH, inkyphat.HEIGHT)
 draw.ellipse([0, 0,20,20], fill=inkyphat.RED, outline=inkyphat.BLACK)
 for i in range(0,11):
   if data[i]['lineStatuses'][0]['statusSeverity'] < 10:
-    draw.ellipse([y, 5, y+10, 15], fill=inkyphat.RED, outline=inkyphat.BLACK)
+    draw.ellipse([y, 5, y+10, 15], fill='red', outline='black')
   else:
-    draw.ellipse([y, 5, y+10, 15], fill=None, outline=inkyphat.BLACK)
+    draw.ellipse([y, 5, y+10, 15], fill='white', outline='black')
 inkyphat.paste(update, mask=1)
 # # timestamp
 # st = datetime.datetime.now().strftime('%H:%M:%S %d/%m')
