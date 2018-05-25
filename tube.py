@@ -7,7 +7,7 @@ def rename(name):
 	# 	if 
 
 #function to rotate text
-def draw_text(position, text, font=None, colour=inkyphat.BLACK, rotation=0, size=12):
+def draw_text(position, text, font=None, colour=inkyphat.BLACK, rotation=0, size=16):
     x, y = position
     if font is None:
   		font = ImageFont.truetype("/home/pi/tubestatus/BetterPixels.ttf", size)
@@ -30,7 +30,7 @@ for item in data:
 
 # draw header
 inkyphat.rectangle([0,0,19,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
-draw_text((0, 15), "tube status", colour=inkyphat.WHITE, rotation=90, size=14)
+draw_text((0, 15), "tube status", colour=inkyphat.WHITE, rotation=90, size=18)
 
 top = 0
 font_file = inkyphat.fonts.FredokaOne
@@ -55,6 +55,6 @@ for i in range(0,11):
 # timestamp
 st = datetime.datetime.now().strftime('%H:%M:%S %d/%m/%Y')
 inkyphat.rectangle([191,0,213,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
-draw_text((197, 5), st, colour=inkyphat.WHITE, rotation=90, size=10)
+draw_text((197, 5), st, colour=inkyphat.WHITE, rotation=90, size=16)
 	
 inkyphat.show()
