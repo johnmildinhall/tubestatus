@@ -54,6 +54,6 @@ for i in range(0,11):
 # timestamp
 ts = time.time()
 st = datetime.datetime.fromtimestamp(ts).strftime('%H:%M:%S %d-%m-%Y')
-draw_text((200, 25), st, colour=inkyphat.BLACK, rotation=90, size=12)
+draw_text((190, 1), st, colour=inkyphat.BLACK, rotation=90, size=12)
 	
 inkyphat.show()
