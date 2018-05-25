@@ -1,4 +1,4 @@
-import requests, json, inkyphat
+import requests, json, inkyphat, datetime
 from PIL import ImageFont
 
 def rename(name):
@@ -10,7 +10,7 @@ def rename(name):
 def draw_text(position, text, font=None, colour=inkyphat.BLACK, rotation=0, size=12):
     x, y = position
     if font is None:
-        font = inkyphat.ImageFont.truetype(inkyphat.fonts.FredokaOne,12)
+        font = inkyphat.ImageFont.truetype(inkyphat.fonts.FredokaOne,size)
     w, h = font.getsize(text)
     mask = inkyphat.Image.new('1', (w, h))
     draw = inkyphat.ImageDraw.Draw(mask)
@@ -50,5 +50,9 @@ for i in range(0,11):
 		inkyphat.ellipse([y+2, 5, y+12, 15], fill=inkyphat.RED, outline=inkyphat.BLACK)
 	else:
 		inkyphat.ellipse([y+2, 5, y+12, 15], fill=None, outline=inkyphat.BLACK)
+
+# timestamp
+st = datetime.datetime.fromtimestamp(ts).strftime('%H:%M:%S %d-%m-%Y')
+draw_text((1, 200), st, colour=inkyphat.BLACK, rotation=90, size=12)
 	
 inkyphat.show()
