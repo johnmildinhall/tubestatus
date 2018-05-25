@@ -25,7 +25,7 @@ def draw_text(position, text, font=1, colour=inkyphat.BLACK, rotation=0, size=16
 
 
 def updateTube():
-  threading.Timer(60, updateTube).start()
+  threading.Timer(90, updateTube).start()
   # Get tube data
   url = 'https://api.tfl.gov.uk/line/mode/tube/status'
   response = requests.get(url)
@@ -60,7 +60,7 @@ def updateTube():
 
   utc = datetime.now() + timedelta(hours=1)
   bst = pytz.timezone('Europe/London')
-  fmt = '%H:%M:%S %d-%m'
+  fmt = '%H:%M %d/%m/%y'
   time = bst.localize(utc).strftime(fmt)
 
   print(time)
