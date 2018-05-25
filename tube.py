@@ -50,11 +50,13 @@ def updateTube():
   	if text == "Waterloo & City":
   		text = "W'loo & City"
   	draw_text((y, 23), text, rotation=90)
-  	if data[i]['lineStatuses'][0]['statusSeverity'] < 10:
+  	if data[i]['lineStatuses'][0]['statusSeverity'] < 8 :
   		inkyphat.ellipse([y, 5, y+10, 15], fill=inkyphat.RED, outline=inkyphat.BLACK)
-  	else:
+  	if data[i]['lineStatuses'][0]['statusSeverity'] > 7 and data[i]['lineStatuses'][0]['statusSeverity'] < 10:
   		inkyphat.ellipse([y, 5, y+10, 15], fill=None, outline=inkyphat.BLACK)
-
+      inkyphat.ellipse([y+2, 7, y+8, 13], fill=None, outline=inkyphat.BLACK)
+    if data[i]['lineStatuses'][0]['statusSeverity'] == 10
+     inkyphat.ellipse([y, 5, y+10, 15], fill=None, outline=inkyphat.BLACK)
   # timestamp
    
 
