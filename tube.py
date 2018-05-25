@@ -32,7 +32,7 @@ for item in data:
 
 # draw header
 inkyphat.rectangle([0,0,19,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
-draw_text((0, 15), "tube", font=2, colour=inkyphat.WHITE, rotation=90, size=18)
+draw_text((1, 15), "tubetron", font=2, colour=inkyphat.WHITE, rotation=90, size=18)
 
 top = 0
 font_file = inkyphat.fonts.FredokaOne
