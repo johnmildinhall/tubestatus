@@ -1,4 +1,4 @@
-import requests, json, inkyphat, datetime, time
+import requests, json, inkyphat, datetime, time, pytz
 from PIL import ImageFont
 
 def rename(name):
@@ -55,7 +55,9 @@ for i in range(0,11):
 
 # timestamp
 st = datetime.datetime.now().strftime('%H:%M:%S %d/%m')
+bst = pytz.timezone('Europe/London')
+time = bst.localize(st)
 inkyphat.rectangle([191,0,213,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
-draw_text((197, 6), st, colour=inkyphat.WHITE, rotation=90, size=16)
+draw_text((197, 6), time, colour=inkyphat.WHITE, rotation=90, size=16)
 	
 inkyphat.show()
