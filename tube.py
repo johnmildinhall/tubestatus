@@ -36,9 +36,7 @@ inkyphat.rectangle([0,0,19,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
 draw_text((2, 9), "tubetron", font=2, colour=inkyphat.WHITE, rotation=90, size=18)
 
 top = 0
-font_file = inkyphat.fonts.FredokaOne
-font_size = 10
-font = inkyphat.ImageFont.truetype(font_file, font_size)
+
 for i in range(0,11):
 	y = (i*15) + 25
 	text = data[i]['name']
@@ -58,8 +56,8 @@ for i in range(0,11):
  
 utc = datetime.datetime.now()
 bst = pytz.timezone('Europe/London')
-fmt = '%H:%M:%S %d-%m'
-time = bst.localize(utc)  #.strftime(fmt)
+fmt = '%H:%M:%S %d-%m %Z'
+time = bst.localize(utc).strftime(fmt)
 
 print(time)
 inkyphat.rectangle([191,0,213,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
