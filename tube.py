@@ -10,10 +10,10 @@ def rename(name):
 def draw_text(position, text, font=1, colour=inkyphat.BLACK, rotation=0, size=16):
     x, y = position
     if font == 1:
-  		font = ImageFont.truetype("/home/pi/tubestatus/BetterPixels.ttf", size)
-  	else:
-			font = ImageFont.truetype("/home/pi/tubestatus/Extrude.ttf", size)
-			# font = inkyphat.ImageFont.truetype(inkyphat.fonts.FredokaOne,size)
+      font = ImageFont.truetype("/home/pi/tubestatus/BetterPixels.ttf", size)
+    else:
+      font = ImageFont.truetype("/home/pi/tubestatus/Extrude.ttf", size)
+      # font = inkyphat.ImageFont.truetype(inkyphat.fonts.FredokaOne,size)
     w, h = font.getsize(text)
     mask = inkyphat.Image.new('1', (w, h))
     draw = inkyphat.ImageDraw.Draw(mask)
