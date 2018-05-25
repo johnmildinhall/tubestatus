@@ -59,7 +59,7 @@ for i in range(0,11):
 utc = datetime.datetime.now()
 bst = pytz.timezone('Europe/London')
 fmt = '%H:%M:%S %d-%m'
-time = bst.localize(utc).strftime(fmt)
+time = bst.localize(utc)  #.strftime(fmt)
 
 print(time)
 inkyphat.rectangle([191,0,213,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
