@@ -1,4 +1,5 @@
-import requests, json, inkyphat, datetime, time, pytz
+import requests, json, inkyphat, time, pytz
+from datetime import datetime, timedelta
 from PIL import ImageFont
 from pytz import timezone
 
@@ -54,9 +55,13 @@ for i in range(0,11):
 
 # timestamp
  
-utc = datetime.datetime.now()
+
+dst = time.daylight
+if dst == 1:
+  utc = datetime.now() + timedelta(hours=1)
+else: utc = datetime.now()
 bst = pytz.timezone('Europe/London')
-fmt = '%H:%M:%S %d-%m %Z'
+fmt = '%H:%M:%S %d-%m'
 time = bst.localize(utc).strftime(fmt)
 
 print(time)
