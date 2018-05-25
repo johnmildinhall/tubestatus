@@ -28,7 +28,7 @@ for item in data:
 	print(item['lineStatuses'][0]['statusSeverity'])
 
 # draw header
-inkyphat.rectangle([0,0,18,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
+inkyphat.rectangle([0,0,19,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
 draw_text((0, 15), "tube status", colour=inkyphat.WHITE, rotation=90, size=14)
 
 top = 0
@@ -52,9 +52,8 @@ for i in range(0,11):
 		inkyphat.ellipse([y+2, 5, y+12, 15], fill=None, outline=inkyphat.BLACK)
 
 # timestamp
-ts = time.time()
-st = datetime.datetime.fromtimestamp(ts).strftime('%H:%M:%S %d-%m-%Y')
+st = datetime.datetime.now().strftime('%H:%M:%S %d/%m/%Y')
 inkyphat.rectangle([191,0,213,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
-draw_text((195, 5), st, colour=inkyphat.WHITE, rotation=90, size=10)
+draw_text((197, 5), st, colour=inkyphat.WHITE, rotation=90, size=10)
 	
 inkyphat.show()
