@@ -1,5 +1,5 @@
 import requests, json, inkyphat, datetime, time
-from PIL import ImageFont
+from PIL import ImageFont, Image, ImageDraw
 
 def rename(name):
 	values = {"Hammersmith & City":"H'Smth & City", "Metropolitan":"M'politan"}
@@ -38,7 +38,6 @@ top = 0
 font_file = inkyphat.fonts.FredokaOne
 font_size = 10
 font = inkyphat.ImageFont.truetype(font_file, font_size)
-text = "hello"
 for i in range(0,11):
 	y = (i*15) + 25
 	text = data[i]['name']
@@ -49,14 +48,20 @@ for i in range(0,11):
 	if text == "Waterloo & City":
 		text = "W'loo & City"
 	draw_text((y, 23), text, rotation=90)
-	if data[i]['lineStatuses'][0]['statusSeverity'] < 10:
-		inkyphat.ellipse([y, 5, y+10, 15], fill=inkyphat.RED, outline=inkyphat.BLACK)
-	else:
-		inkyphat.ellipse([y, 5, y+10, 15], fill=None, outline=inkyphat.BLACK)
 
-# timestamp
-st = datetime.datetime.now().strftime('%H:%M:%S %d/%m')
-inkyphat.rectangle([191,0,213,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
-draw_text((197, 6), st, colour=inkyphat.WHITE, rotation=90, size=16)
-	
 inkyphat.show()
+
+#repeating steps
+update = Image.new(im.mode, [210,131])
+draw = ImageDraw.Draw(update)
+for i in range(0,11):
+  if data[i]['lineStatuses'][0]['statusSeverity'] < 10:
+    draw.ellipse([y, 5, y+10, 15], fill=inkyphat.RED, outline=inkyphat.BLACK)
+  else:
+    draw.ellipse([y, 5, y+10, 15], fill=None, outline=inkyphat.BLACK)
+inkyphat.paste(update)
+# # timestamp
+# st = datetime.datetime.now().strftime('%H:%M:%S %d/%m')
+# inkyphat.rectangle([191,0,213,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
+# draw_text((197, 6), st, colour=inkyphat.WHITE, rotation=90, size=16)
+	
