@@ -40,7 +40,7 @@ font_size = 10
 font = inkyphat.ImageFont.truetype(font_file, font_size)
 text = "hello"
 for i in range(0,11):
-	y = (i*15) + 26
+	y = (i*15) + 27
 	text = data[i]['name']
 	if text == "Hammersmith & City":
 		text = "H'Smth & City"
@@ -55,8 +55,8 @@ for i in range(0,11):
 		inkyphat.ellipse([y+2, 5, y+12, 15], fill=None, outline=inkyphat.BLACK)
 
 # timestamp
-st = datetime.datetime.now().strftime('%H:%M:%S %d/%m/%Y')
+st = datetime.datetime.now().strftime('%H:%M:%S %d/%m')
 inkyphat.rectangle([191,0,213,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
-draw_text((197, 2), st, colour=inkyphat.WHITE, rotation=90, size=14)
+draw_text((197, 6), st, colour=inkyphat.WHITE, rotation=90, size=16)
 	
 inkyphat.show()
