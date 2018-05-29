@@ -2,7 +2,7 @@
 
 ## An eink London Underground status display, using Pimoroni's inkyphat and a Raspberry Pi.
 
-![alt text](https://www.dropbox.com/s/1lry1qv6rr6r1t1/Screen%20Shot%202018-05-29%20at%201.40.42%20PM.png?dl=0 "Image of Tubetron in action")
+![alt text](./img/tubetron.jpg "Image of Tubetron in action")
 
 The status of a transport network such as the Underground in London changes periodically over the course of the day. This relatively infrequent change of status means that a low-power screen is a good choice to display the information. This project uses [Pimoroni's inkyphat](https://shop.pimoroni.com/products/inky-phat), an eink screen specifically designed for raspberry pi's 40 pin header. Usefully, it comes with a [python SDK](https://github.com/pimoroni/inky-phat) based on PIL. 
 
