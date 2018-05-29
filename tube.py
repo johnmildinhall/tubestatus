@@ -67,7 +67,7 @@ def updateTube():
 
   print(time)
   inkyphat.rectangle([191,0,213,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
-  draw_text((197, 6), time, colour=inkyphat.WHITE, rotation=90, size=16)
+  draw_text((196, 6), time, colour=inkyphat.WHITE, rotation=90, size=16)
   	
   inkyphat.show()
 
