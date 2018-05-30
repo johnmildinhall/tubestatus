@@ -3,8 +3,9 @@ from datetime import datetime, timedelta
 from PIL import ImageFont
 from pytz import timezone
 
+# to do - finish this function
 def rename(name):
-	values = {"Hammersmith & City":"H'Smth & City", "Metropolitan":"M'politan"}
+	values = {"Hammersmith & City":"H'Smth & City", "Metropolitan":"M'politan", "Waterloo & City":"W'loo & City"}
 	# for value in values:
 	# 	if 
 
@@ -23,7 +24,7 @@ def draw_text(position, text, font=1, colour=inkyphat.BLACK, rotation=0, size=16
     mask = mask.rotate(rotation, expand=True)
     inkyphat.paste(colour, position, mask)
 
-
+#main update routine
 def updateTube():
   threading.Timer(90, updateTube).start()
   # Get tube data
@@ -40,6 +41,7 @@ def updateTube():
 
   top = 0
 
+  #loop through each tube line
   for i in range(0,11):
     y = (i*15) + 25
     text = data[i]['name']
@@ -57,7 +59,7 @@ def updateTube():
       inkyphat.ellipse([y+3, 8, y+7, 13], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
     if data[i]['lineStatuses'][0]['statusSeverity'] == 10:
       inkyphat.ellipse([y, 5, y+10, 15], fill=None, outline=inkyphat.BLACK)
-  # timestamp
+
    
 
   utc = datetime.now() + timedelta(hours=1)
@@ -65,10 +67,12 @@ def updateTube():
   fmt = '%H:%M %d/%m/%y'
   time = bst.localize(utc).strftime(fmt)
 
+  # timestamp
   print(time)
   inkyphat.rectangle([191,0,213,131], fill=inkyphat.BLACK, outline=inkyphat.BLACK)
   draw_text((196, 6), time, colour=inkyphat.WHITE, rotation=90, size=16)
   	
+  # write to inkyphat 
   inkyphat.show()
 
 updateTube()
